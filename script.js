@@ -69,6 +69,7 @@ function analisaP(P, TA) {
     }
 }
 
+//Sessão para geração dos resultados, utilizando as functions geraAmostraPositiva e geraAmostra
 function gerarResultados() {
     var i = 0;
     var amostras = 200;
@@ -87,6 +88,7 @@ function gerarResultados() {
     return resultado;
 }
 
+//Sessão para geração do arquivo .TXT.
 document.getElementById('downloadButton').addEventListener('click', function () {
     // Conteúdo do arquivo de texto
     const textContent = gerarResultados();
