@@ -1,23 +1,32 @@
 body {
     margin: 0;
-    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: 'Noto Sans', sans-serif;
+    background: linear-gradient(to right, #1B2631, #5D6D7E);
+}
+
+.content {
+    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(to right, #000000, #646464);
-    font-family: 'Noto Sans', sans-serif;
+    text-align: center;
 }
 
 .menu-geracao {
-    background-color: white;
+    background: linear-gradient(to right, #1B2631, #283747);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
+    color: white;
 }
 
 button {
-    background-color: grey(255, 255, 255, 0.3);
+    background-color: #000000;
+    color: white;
     border: none;
     padding: 10px 20px;
     font-size: 16px;
@@ -26,5 +35,24 @@ button {
 }
 
 button:hover {
-    background-color: grey;
+    background-color: #444444;
+}
+
+.rodape {
+    background-color: #85929E;
+    padding: 10px 0;
+    text-align: center;
+    color: white;
+    width: 100%;
+    border-radius: 5px;
+}
+
+.github {
+    width: 50px;
+    height: auto;
+}
+
+.link-repositorio {
+    width: 50px;
+    height: auto;
 }

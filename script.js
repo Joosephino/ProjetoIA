@@ -86,7 +86,7 @@ function gerarResultados() {
 
     resultado += "Amostras Positivas: " + amostrasPositivas + " - Amostras Negativas: " + amostrasNegativas + "\n";
 
-    console.log("Amostras Positivas: " + amostrasPositivas + " - Amostras Negativas: " + amostrasNegativas);
+    //console.log("Amostras Positivas: " + amostrasPositivas + " - Amostras Negativas: " + amostrasNegativas);
     return resultado;
 }
 
