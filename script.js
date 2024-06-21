@@ -2,7 +2,7 @@ var contadorAmostras = 1;
 var amostrasPositivas = 0;
 var amostrasNegativas = 0;
 
-function geraAmostras() {
+function geraAmostraNegativa() {
     var teorArgila = parseInt(Math.random() * 4 + 1);
     var K = parseFloat(Math.random() * 200 + 20).toFixed(2);
     var P = parseFloat(Math.random() * 80 + 2).toFixed(2);
@@ -79,10 +79,12 @@ function gerarResultados() {
         if (amostrasPositivas < 120) {
             resultado += geraAmostraPositiva();
         } else {
-            resultado += geraAmostras();
+            resultado += geraAmostraNegativa();
         }
         i++;
     }
+
+    resultado += "Amostras Positivas: " + amostrasPositivas + " - Amostras Negativas: " + amostrasNegativas + "\n";
 
     console.log("Amostras Positivas: " + amostrasPositivas + " - Amostras Negativas: " + amostrasNegativas);
     return resultado;
@@ -102,7 +104,7 @@ document.getElementById('downloadButton').addEventListener('click', function () 
     // Cria um elemento de link
     const a = document.createElement('a');
     a.href = url;
-    a.download = 'exemplo.txt'; // Nome do arquivo a ser baixado
+    a.download = 'dados_gerados.txt'; // Nome do arquivo a ser baixado
     
     // Adiciona o link ao corpo do documento e clica nele programaticamente
     document.body.appendChild(a);
