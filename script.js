@@ -1,7 +1,8 @@
 var contadorAmostras = 1;
 var amostrasPositivas = 0;
 var amostrasNegativas = 0;
-
+var amostras = 200;
+var valorAtribuido=[];
 function geraAmostraNegativa() {
     var teorArgila = parseInt(Math.random() * 4 + 1);
     var K = parseFloat(Math.random() * 200 + 20).toFixed(2);
@@ -9,13 +10,21 @@ function geraAmostraNegativa() {
     var CTC = parseFloat(Math.random() * 30 + 5).toFixed(2);
     var numeroCultivo = parseInt(Math.random() + 1);
     var result;
-    if (analisaK(K, CTC) && analisaP(P, teorArgila)) {
+    /*if (analisaK(K, CTC) && analisaP(P, teorArgila)) {
         result = "Positiva";
         amostrasPositivas++;
     } else {
         result = "Negativa";
         amostrasNegativas++;
+    }*/
+   //enquanto se a amostra for valida gere outra amostra até que saia algo invalido... 
+    while (analisaK(K, CTC) && analisaP(P, teorArgila)) {
+        K = parseFloat(Math.random() * 200 + 20).toFixed(2);
+        CTC = parseFloat(Math.random() * 30 + 5).toFixed(2);
+        P = parseFloat(Math.random() * 80 + 2).toFixed(2);
+        teorArgila = parseInt(Math.random() * 4 + 1);
     }
+    amostrasNegativas++;
     //Retornará a informação montada para a function geraAmostras()
     return teorArgila + "," + K + "," + P + "," + CTC + "," + numeroCultivo +  ",\n";
 }
@@ -72,14 +81,15 @@ function analisaP(P, TA) {
 //Sessão para geração dos resultados, utilizando as functions geraAmostraPositiva e geraAmostra
 function gerarResultados() {
     var i = 0;
-    var amostras = 200;
     var resultado = '';
 
     while (i < amostras) {
         if (amostrasPositivas < 120) {
             resultado += geraAmostraPositiva();
+            valorAtribuido[i]=1;
         } else {
             resultado += geraAmostraNegativa();
+            valorAtribuido[i]=0;
         }
         i++;
     }
